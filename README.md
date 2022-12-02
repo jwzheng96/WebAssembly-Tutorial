@@ -35,8 +35,17 @@ git pull
 source ./emsdk_env.sh
 ```
 
-3、running the example
+3、compile
 
+```bash
+emcc hello.c -o hello.html
+#At this point in your source directory you should have:
+#hello.wasm: the binary wasm module code
+#hello.js: a JavaScript file containing glue code to translate between the native C functions, and JavaScript/wasm
+#hello.html: an HTML file to load, compile, and instantiate your wasm code, and display its output in the browser
+```
+
+4、open from local
 ```bash
 #  If you try to open generated HTML file (hello.html) directly from your local hard drive (e.g. file://your_path/hello.html), you will end up with an error message along the lines of both async and sync fetching of the wasm failed. You need to run your HTML file through an HTTP server (http://)
 
